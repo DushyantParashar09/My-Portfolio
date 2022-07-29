@@ -3,8 +3,8 @@
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-:root {
+ */ 
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -138,7 +138,8 @@ a {
   background-color: transparent; }
   a:hover {
     color: #0056b3;
-    text-decoration: underline; }
+    text-decoration: underline;
+   }
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -3374,7 +3375,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
-    text-decoration: none; }
+    text-decoration: none !important;  } 
   .nav-link.disabled {
     color: #6c757d;
     pointer-events: none;
@@ -9706,6 +9707,7 @@ textarea.form-control {
 .myul{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   font-size: 26px;
   color: white !important; 
   justify-content: space-around;

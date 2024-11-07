@@ -8880,10 +8880,31 @@ h1, h2, h3, h4, h5,
 .progress-wrap {
   width: 100%;
   margin-bottom: 30px; }
+
   .progress-wrap h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    font-weight: 500; }
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .progress-wrap h3 {
+         font-size: 17px; /* Adjust the size as needed for mobile screens */
+    }
+} 
+
+@media (max-width: 995px) {
+  .progress-wrap h3 {
+         font-size: 13px; /* Adjust the size as needed for mobile screens */
+    }
+} 
+
+@media (max-width: 360px) {
+  .progress-wrap h3 {
+         font-size: 11px; /* Adjust the size as needed for mobile screens */
+    }
+} 
+
 
 .progress {
   height: 10px;
@@ -8926,6 +8947,24 @@ h1, h2, h3, h4, h5,
     font-size: 20px;
     font-weight: 400;
     color: #fff; }
+
+
+    @media (max-width: 1200px) {
+      .progress-bar span {
+             font-size: 17px; /* Adjust the size as needed for mobile screens */
+        }
+    } 
+
+    @media (max-width: 995px) {
+      .progress-bar span {
+             font-size: 13px; /* Adjust the size as needed for mobile screens */
+        }
+    } 
+    @media (max-width: 360px) {
+      .progress-bar span {
+             font-size: 11px; /* Adjust the size as needed for mobile screens */
+        }
+    } 
 
 .ftco-hireme {
   background: #ffbd39;

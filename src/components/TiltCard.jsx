@@ -16,6 +16,9 @@ export default function TiltCard({
   const [style, setStyle] = useState({});
 
   const handleMouseMove = (e) => {
+    // Only apply on fine-pointer devices (mouse / trackpad)
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
     const card = cardRef.current;
     if (!card) return;
 
@@ -38,6 +41,7 @@ export default function TiltCard({
   };
 
   const handleMouseLeave = () => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     setStyle({
       transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
       transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)',

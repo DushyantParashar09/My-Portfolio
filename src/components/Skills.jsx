@@ -17,14 +17,16 @@ export default function Skills() {
 
   const activeSkill = ASTROLABE_SKILLS.find(s => s.id === activeSkillId) || null;
 
-  // Handle card mouse enter -> immediately activate
+  // Handle card mouse enter -> immediately activate (desktop only)
   const handleCardMouseEnter = (id) => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     setActiveSkillId(id);
   };
 
   // Handle card mouse leave -> short 160ms bridge window to allow moving into dialogue box
   const handleCardMouseLeave = () => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => {
       setActiveSkillId(null);
@@ -33,11 +35,13 @@ export default function Skills() {
 
   // Cursor entered dialogue box -> keep it open
   const handleDialogueMouseEnter = () => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
   };
 
   // Cursor left dialogue box -> auto collapse immediately
   const handleDialogueMouseLeave = () => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => {
       setActiveSkillId(null);
@@ -46,6 +50,7 @@ export default function Skills() {
 
   // Mobile/touch or click toggle
   const handleCardClick = (id) => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     setActiveSkillId(prev => (prev === id ? null : id));
   };
 

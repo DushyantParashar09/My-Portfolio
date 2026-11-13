@@ -60,7 +60,14 @@ export default function DecryptedText({
   }, [text]);
 
   const handleMouseEnter = () => {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     if (triggerOnHover && !isAnimating) {
+      scramble();
+    }
+  };
+
+  const handleClick = () => {
+    if (!isAnimating) {
       scramble();
     }
   };
@@ -69,6 +76,7 @@ export default function DecryptedText({
     <Component
       className={`decrypted-text ${isAnimating ? 'decrypting' : ''} ${className}`}
       onMouseEnter={handleMouseEnter}
+      onClick={handleClick}
       title="Click or hover to decrypt"
     >
       {displayText}

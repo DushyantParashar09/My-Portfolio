@@ -3284,6 +3284,43 @@ body::after {
 }
 
 /* ==========================================================================
+   Mobile / Touch Optimization: Fix 2-Click Hover Sticky Bug
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable synthetic hover transforms on mobile cards so first tap registers immediately */
+  .tilt-card {
+    transform: none !important;
+  }
+
+  .vector-skill-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .vector-skill-card.is-active {
+    background: #11182c;
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.25), 0 8px 25px rgba(0, 0, 0, 0.6);
+  }
+
+  .project-card:hover,
+  .exp-card:hover,
+  .cert-card:hover,
+  .achievement-card:hover,
+  .blog-card:hover {
+    transform: none;
+  }
+
+  /* Make tap feedback crisp and instant */
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-card-action:active,
+  .vector-skill-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ==========================================================================
    Matrix Emerald Cyberpunk Animation Suite
    ========================================================================== */
 
